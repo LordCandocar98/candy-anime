@@ -22,21 +22,26 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="login__form">
-                        <h3>Sign Up</h3>
-                        <form action="#">
+                        <h3>Registro</h3>
+                        <form method="POST" action="{{ route('register') }}">
+                            @csrf
                             <div class="input__item">
-                                <input type="text" placeholder="Email address">
-                                <span class="icon_mail"></span>
-                            </div>
-                            <div class="input__item">
-                                <input type="text" placeholder="Your Name">
+                                <input id="name" type="text" placeholder="Tu nombre" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                 <span class="icon_profile"></span>
                             </div>
                             <div class="input__item">
-                                <input type="text" placeholder="Password">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Correo electrónico">
+                                <span class="icon_mail"></span>
+                            </div>
+                            <div class="input__item">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Contraseña">
                                 <span class="icon_lock"></span>
                             </div>
-                            <button type="submit" class="site-btn">Login Now</button>
+                            <div class="input__item">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar contraseña">
+                                <span class="icon_lock"></span>
+                            </div>
+                            <button type="submit" class="site-btn">Registrarme ahora!!</button>
                         </form>
                         <h5>Already have an account? <a href="#">Log In!</a></h5>
                     </div>

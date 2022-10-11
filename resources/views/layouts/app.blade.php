@@ -67,6 +67,14 @@
                     <div class="header__right">
                         <a href="#" class="search-switch"><span class="icon_search"></span></a>
                         <a href="{{ url('/login') }}"><span class="icon_profile"></span></a>
+                            <a class="social_pinterest" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                     </div>
                 </div>
             </div>
